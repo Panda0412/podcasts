@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-export default function FirstScreen() {
+export default function First({navigation}) {
   return (
     <>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
@@ -27,7 +27,7 @@ export default function FirstScreen() {
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => {}}>
+          onPress={() => navigation.navigate('Second')}>
           <Text style={styles.buttonText}>Добавить подкаст</Text>
         </TouchableOpacity>
       </View>

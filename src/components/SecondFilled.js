@@ -23,28 +23,45 @@ export default function FirstScreen({navigation}) {
       <View style={styles.line1} />
       <ScrollView style={{backgroundColor: 'white'}}>
         <View style={styles.body1}>
-          <TouchableOpacity style={styles.imageLoad}>
-            <Image source={require('../images/gallery.png')} />
-          </TouchableOpacity>
+          <Image style={styles.image} source={require('../images/dogs.png')} />
           <Text style={styles.textForm1}>Название</Text>
           <TouchableOpacity style={styles.input}>
-            <Text style={styles.placeholder}>Введите название подкаста</Text>
+            <Text style={styles.checkBoxText}>Подкаст прекрасных людей</Text>
           </TouchableOpacity>
           <Text style={styles.textForm2}>Описание подкаста</Text>
-          <TouchableOpacity style={styles.multilineInput} />
-          <View style={styles.center}>
-            <Text style={styles.label}>Загрузите ваш подкаст</Text>
-            <Text style={styles.content}>
-              Выберите готовый аудиофайл из{'\n'}вашего телефона и добавьте его
+          <TouchableOpacity style={styles.multilineInput}>
+            <Text style={styles.checkBoxText}>
+              Подкаст, который рассказывает про то, как много в мире
+              прекрасного!
             </Text>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-                alert('Sorry!\nThis action is still in development 💻');
-              }}>
-              <Text style={styles.buttonText}>Загрузить файл</Text>
-            </TouchableOpacity>
+          </TouchableOpacity>
+          <View
+            style={{
+              marginTop: 28,
+              height: 48,
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Image
+              style={{marginRight: 10}}
+              source={require('../images/micro.png')}
+            />
+            <Text style={styles.checkBoxText}>My_podcast.mp3</Text>
+            <Text style={styles.time}>59:16</Text>
           </View>
+          <View style={{marginTop: 10, marginBottom: 19}}>
+            <Text style={styles.note2}>
+              Вы можете добавить таймкоды и скорректировать подкаст в режиме
+              редактирования
+            </Text>
+          </View>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate('Edit');
+            }}>
+            <Text style={styles.buttonText}>Редактировать аудиозапись</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.line2} />
         <View style={styles.body2}>
@@ -87,9 +104,7 @@ export default function FirstScreen({navigation}) {
               пользователей
             </Text>
           </View>
-          <TouchableOpacity
-            style={styles.blueButton}
-            onPress={() => navigation.navigate('SecondFilled')}>
+          <TouchableOpacity style={styles.blueButton}>
             <Text style={styles.blueButtonText}>Далее</Text>
           </TouchableOpacity>
         </View>
@@ -124,13 +139,11 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginLeft: 16,
   },
-  imageLoad: {
+  image: {
     width: 72,
     height: 72,
     marginTop: 15,
-    backgroundColor: '#F2F3F5',
     borderWidth: 0.5,
-    borderStyle: 'solid',
     borderColor: 'rgba(0, 0, 0, 0.12)',
     borderRadius: 8,
     justifyContent: 'center',
@@ -183,6 +196,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: 'rgba(0, 0, 0, 0.12)',
     borderRadius: 8,
+    padding: 12,
   },
   center: {
     height: 196,
@@ -208,13 +222,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   button: {
-    width: 146,
-    height: 36,
+    height: 42,
     borderWidth: 0.5,
     borderStyle: 'solid',
     borderColor: '#3F8AE0',
     borderRadius: 8,
-    marginTop: 24,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -224,7 +236,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 20,
     color: '#3F8AE0',
-    letterSpacing: 0.2,
+    letterSpacing: 0.1,
   },
   line2: {
     height: 0.5,
@@ -263,7 +275,6 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width - 32,
     height: 44,
     backgroundColor: '#4986CC',
-    opacity: 0.4,
     borderRadius: 8,
     margin: 4,
     justifyContent: 'center',
@@ -276,5 +287,13 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     color: 'white',
     letterSpacing: -0.408,
+  },
+  time: {
+    fontFamily: 'Roboto',
+    fontSize: 13,
+    lineHeight: 16,
+    color: '#99A2AD',
+    letterSpacing: 0.2,
+    marginLeft: Dimensions.get('window').width - 252,
   },
 });

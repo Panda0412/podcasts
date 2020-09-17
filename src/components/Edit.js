@@ -21,7 +21,11 @@ export default function FirstScreen({navigation}) {
         <Text style={styles.title}>Редактирование</Text>
       </View>
       <View style={styles.line} />
-      <View style={{backgroundColor: 'white'}}>
+      <View
+        style={{
+          backgroundColor: 'white',
+          height: Dimensions.get('window').height,
+        }}>
         {!focused && (
           <View style={styles.body}>
             <View style={styles.card}>
@@ -125,6 +129,15 @@ export default function FirstScreen({navigation}) {
         )}
         <View style={styles.body}>
           <Text style={styles.text1}>Таймкоды</Text>
+          <Image
+            style={{marginTop: 19}}
+            source={require('../images/bluePlus.png')}
+          />
+          <Text style={styles.blueText}>Добавить таймкод</Text>
+          <Text style={styles.text2}>
+            Отметки времени с названием темы. Позволяют слушателям легче
+            путешествовать по подкасту.
+          </Text>
         </View>
       </View>
     </>
@@ -171,6 +184,8 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: '#3F8AE0',
     letterSpacing: 0.1,
+    marginTop: -25,
+    marginLeft: 44,
   },
   text1: {
     fontFamily: 'Roboto',
@@ -188,5 +203,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: '#818C99',
     letterSpacing: 0.2,
+    marginTop: 18,
   },
 });
